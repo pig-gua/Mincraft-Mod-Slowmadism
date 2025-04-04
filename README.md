@@ -1,3 +1,10 @@
+# Slowmadism
+This is a Minecraft Forge Mod.
+
+Minecraft Version: 1.16.5
+
+Minecraft Forge Version: 1.16.5-36.2.42
+
 
 Source installation information for modders
 -------------------------------------------
