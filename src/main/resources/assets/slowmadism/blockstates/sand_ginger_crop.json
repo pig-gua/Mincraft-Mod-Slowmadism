@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "slowmadism:block/sand_ginger_stage0"
+    },
+    "age=1": {
+      "model": "slowmadism:block/sand_ginger_stage0"
+    },
+    "age=2": {
+      "model": "slowmadism:block/sand_ginger_stage1"
+    },
+    "age=3": {
+      "model": "slowmadism:block/sand_ginger_stage1"
+    },
+    "age=4": {
+      "model": "slowmadism:block/sand_ginger_stage2"
+    },
+    "age=5": {
+      "model": "slowmadism:block/sand_ginger_stage2"
+    },
+    "age=6": {
+      "model": "slowmadism:block/sand_ginger_stage2"
+    },
+    "age=7": {
+      "model": "slowmadism:block/sand_ginger_stage3"
+    }
+  }
+}

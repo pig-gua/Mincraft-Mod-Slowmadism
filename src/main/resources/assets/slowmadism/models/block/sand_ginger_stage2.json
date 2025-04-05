@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "slowmadism:block/sand_ginger_stage2"
+  }
+}
