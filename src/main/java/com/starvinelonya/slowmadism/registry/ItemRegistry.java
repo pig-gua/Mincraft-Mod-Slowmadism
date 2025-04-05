@@ -25,6 +25,10 @@ public class ItemRegistry {
                     .food(new Food.Builder().hunger(1).saturation(0.1f).fastToEat().build())
                     .group(SlowmadismItemGroup.SLOWMADISM_ITEM_GROUP)));
 
+    public static final RegistryObject<Item> RICE = ITEMS.register("rice",
+            () -> new Item(new Item.Properties()
+                    .group(SlowmadismItemGroup.SLOWMADISM_ITEM_GROUP)));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
