@@ -1,9 +1,34 @@
 # Slowmadism
+
+## 基本信息
 This is a Minecraft Forge Mod.
 
 Minecraft Version: 1.16.5
 
 Minecraft Forge Version: 1.16.5-36.2.42
+
+## 目录结构
+```text
+resources
+├─assets
+│  └─slowmadism
+│      ├─blockstates    定义方块状态
+│      ├─lang           语言翻译
+│      ├─models         模型
+│      │  ├─block
+│      │  └─item
+│      └─textures       材质
+│          ├─block
+│          └─item
+├─data
+│  ├─forge
+│  ├─minecraft
+│  └─slowmadism
+│      ├─loot_tables    掉落表
+│      │  └─blocks
+│      └─recipes        配方
+└─META-INF
+```
 
 
 Source installation information for modders
