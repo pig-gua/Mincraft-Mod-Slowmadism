@@ -1,6 +1,7 @@
 package com.starvinelonya.slowmadism;
 
 import com.starvinelonya.slowmadism.registry.BlockRegistry;
+import com.starvinelonya.slowmadism.registry.FluidRegistry;
 import com.starvinelonya.slowmadism.registry.ItemRegistry;
 import com.starvinelonya.slowmadism.registry.TileEntityRegistry;
 import net.minecraft.block.Block;
@@ -62,6 +63,8 @@ public class Slowmadism {
         BlockRegistry.register(modEventBus);
         // 注册方块实体（Tile Entities）到模组的注册表中，确保自定义方块实体能够在游戏加载时正确注册。
         TileEntityRegistry.register(modEventBus);
+        // 注册流体（Fluids）到模组的注册表中，确保自定义流体能够在游戏加载时正确注册。
+        FluidRegistry.register(modEventBus);
     }
 
     /**
@@ -122,6 +125,10 @@ public class Slowmadism {
         event.enqueueWork(() -> {
             // 农作物渲染
             RenderTypeLookup.setRenderLayer(BlockRegistry.SAND_GINGER_CROP.get(), RenderType.getCutout());
+            // 流体渲染
+            RenderTypeLookup.setRenderLayer(FluidRegistry.RICE_MILK_FLUID.get(), RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(FluidRegistry.RICE_MILK_BLOCK.get(), RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(FluidRegistry.RICE_MILK_FLOWING.get(), RenderType.getTranslucent());
         });
     }
 

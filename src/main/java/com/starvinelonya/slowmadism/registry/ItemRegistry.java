@@ -3,6 +3,7 @@ package com.starvinelonya.slowmadism.registry;
 import com.starvinelonya.slowmadism.Slowmadism;
 import com.starvinelonya.slowmadism.group.SlowmadismItemGroup;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.BucketItem;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -27,6 +28,11 @@ public class ItemRegistry {
 
     public static final RegistryObject<Item> RICE = ITEMS.register("rice",
             () -> new Item(new Item.Properties()
+                    .group(SlowmadismItemGroup.SLOWMADISM_ITEM_GROUP)));
+
+    public static final RegistryObject<Item> RICE_MILK_BUCKET = ITEMS.register("rice_milk_bucket",
+            () -> new BucketItem(() -> FluidRegistry.RICE_MILK_FLUID.get(), new Item.Properties()
+                    .maxStackSize(1)
                     .group(SlowmadismItemGroup.SLOWMADISM_ITEM_GROUP)));
 
     public static void register(IEventBus eventBus) {

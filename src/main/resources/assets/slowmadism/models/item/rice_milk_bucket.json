@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "slowmadism:item/rice_milk_bucket"
+  }
+}
