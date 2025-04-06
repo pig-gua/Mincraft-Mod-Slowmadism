@@ -1,8 +1,10 @@
 package com.starvinelonya.slowmadism.registry;
 
 import com.starvinelonya.slowmadism.Slowmadism;
+import com.starvinelonya.slowmadism.block.entity.StoneMillTile;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -15,6 +17,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class TileEntityRegistry {
 
     public static final DeferredRegister<TileEntityType<?>> TILE_ENTITIES = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, Slowmadism.MOD_ID);
+
+    public static RegistryObject<TileEntityType<StoneMillTile>> STONE_MILL_TILE = TILE_ENTITIES.register("stone_mill_tile",
+            () -> TileEntityType.Builder.create(StoneMillTile::new, BlockRegistry.STONE_MILL_BLOCK.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         TILE_ENTITIES.register(eventBus);

@@ -3,5 +3,7 @@
   "block.slowmadism.sand_ginger_crop": "Sand Ginger",
   "item.slowmadism.rice": "Rice",
   "fluid.slowmadism.rice_milk": "Rice Milk",
-  "item.slowmadism.rice_milk_bucket": "Rice Milk Bucket"
+  "item.slowmadism.rice_milk_bucket": "Rice Milk Bucket",
+  "block.slowmadism.stone_mill": "Stone Mill",
+  "screen.slowmadism.stone_mill": "Stone Mill"
 }

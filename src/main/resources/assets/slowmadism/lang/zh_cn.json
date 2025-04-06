@@ -3,5 +3,7 @@
   "block.slowmadism.sand_ginger_crop": "沙姜",
   "item.slowmadism.rice": "米",
   "fluid.slowmadism.rice_milk": "米浆",
-  "item.slowmadism.rice_milk_bucket": "米浆桶"
+  "item.slowmadism.rice_milk_bucket": "米浆桶",
+  "block.slowmadism.stone_mill": "石磨",
+  "screen.slowmadism.stone_mill": "石磨"
 }

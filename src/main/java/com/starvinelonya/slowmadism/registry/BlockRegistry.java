@@ -2,10 +2,12 @@ package com.starvinelonya.slowmadism.registry;
 
 import com.starvinelonya.slowmadism.Slowmadism;
 import com.starvinelonya.slowmadism.block.SandGingerCrop;
+import com.starvinelonya.slowmadism.block.StoneMillBlock;
 import com.starvinelonya.slowmadism.group.SlowmadismItemGroup;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -27,6 +29,9 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> SAND_GINGER_CROP = BLOCKS.register("sand_ginger_crop",
             () -> new SandGingerCrop(AbstractBlock.Properties.from(Blocks.WHEAT)));
+
+    public static final RegistryObject<Block> STONE_MILL_BLOCK = registerBlock("stone_mill",
+            () -> new StoneMillBlock(AbstractBlock.Properties.create(Material.ROCK).notSolid()));
 
     private static <T extends Block > RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

@@ -1,0 +1,14 @@
+{
+  "type": "slowmadism:stone_mill",
+  "ingredients": [
+    {
+      "item": "slowmadism:rice"
+    },
+    {
+      "item": "minecraft:bucket"
+    }
+  ],
+  "output": {
+    "item": "slowmadism:rice_milk_bucket"
+  }
+}

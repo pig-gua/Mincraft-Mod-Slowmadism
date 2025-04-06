@@ -35,6 +35,9 @@ public class ItemRegistry {
                     .maxStackSize(1)
                     .group(SlowmadismItemGroup.SLOWMADISM_ITEM_GROUP)));
 
+    public static final RegistryObject<Item> STONE_MILL_UPPER = ITEMS.register("stone_mill_upper",
+            () -> new Item(new Item.Properties()));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

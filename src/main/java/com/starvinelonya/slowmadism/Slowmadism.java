@@ -1,11 +1,11 @@
 package com.starvinelonya.slowmadism;
 
-import com.starvinelonya.slowmadism.registry.BlockRegistry;
-import com.starvinelonya.slowmadism.registry.FluidRegistry;
-import com.starvinelonya.slowmadism.registry.ItemRegistry;
-import com.starvinelonya.slowmadism.registry.TileEntityRegistry;
+import com.starvinelonya.slowmadism.registry.*;
+import com.starvinelonya.slowmadism.render.StoneMillTileEntityRender;
+import com.starvinelonya.slowmadism.screen.StoneMillScreen;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.common.MinecraftForge;
@@ -13,6 +13,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -65,6 +66,10 @@ public class Slowmadism {
         TileEntityRegistry.register(modEventBus);
         // 注册流体（Fluids）到模组的注册表中，确保自定义流体能够在游戏加载时正确注册。
         FluidRegistry.register(modEventBus);
+        // 注册容器（Containers）到模组的注册表中，确保自定义容器能够在游戏加载时正确注册。
+        ContainerRegistry.register(modEventBus);
+        // 注册方块渲染类型（Render Types）到模组的注册表中，确保自定义方块能够正确渲染。
+        RecipeTypeRegistry.register(modEventBus);
     }
 
     /**
@@ -129,6 +134,10 @@ public class Slowmadism {
             RenderTypeLookup.setRenderLayer(FluidRegistry.RICE_MILK_FLUID.get(), RenderType.getTranslucent());
             RenderTypeLookup.setRenderLayer(FluidRegistry.RICE_MILK_BLOCK.get(), RenderType.getTranslucent());
             RenderTypeLookup.setRenderLayer(FluidRegistry.RICE_MILK_FLOWING.get(), RenderType.getTranslucent());
+            // 注册屏幕GUI渲染
+            ScreenManager.registerFactory(ContainerRegistry.STONE_MILL_CONTAINER.get(), StoneMillScreen::new);
+            // 自定义方块实体渲染
+            ClientRegistry.bindTileEntityRenderer(TileEntityRegistry.STONE_MILL_TILE.get(), StoneMillTileEntityRender::new);
         });
     }
 
