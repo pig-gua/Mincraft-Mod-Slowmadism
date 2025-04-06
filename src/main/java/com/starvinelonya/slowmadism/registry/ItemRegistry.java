@@ -2,6 +2,7 @@ package com.starvinelonya.slowmadism.registry;
 
 import com.starvinelonya.slowmadism.Slowmadism;
 import com.starvinelonya.slowmadism.group.SlowmadismItemGroup;
+import com.starvinelonya.slowmadism.item.CheungFunItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.Food;
@@ -33,6 +34,12 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CHEUNG_FUN_DISH = ITEMS.register("cheung_fun_dish",
             () -> new Item(new Item.Properties()
                     .group(SlowmadismItemGroup.SLOWMADISM_ITEM_GROUP)));
+
+    public static final RegistryObject<Item> PLAIN_CHEUNG_FUN = ITEMS.register("plain_cheung_fun",
+            () -> new CheungFunItem(new Item.Properties()
+                    .food((new Food.Builder()).hunger(6).saturation(10.0f).build())
+                    .group(SlowmadismItemGroup.SLOWMADISM_ITEM_GROUP)));
+
 
     public static final RegistryObject<Item> RICE_MILK_BUCKET = ITEMS.register("rice_milk_bucket",
             () -> new BucketItem(() -> FluidRegistry.RICE_MILK_FLUID.get(), new Item.Properties()
