@@ -5,5 +5,8 @@
   "fluid.slowmadism.rice_milk": "米浆",
   "item.slowmadism.rice_milk_bucket": "米浆桶",
   "block.slowmadism.stone_mill": "石磨",
-  "screen.slowmadism.stone_mill": "石磨"
+  "screen.slowmadism.stone_mill": "石磨",
+  "item.slowmadism.cheung_fun_dish": "肠粉碟",
+  "tooltip.slowmadism.stone_mill": "按住 §eSHIFT§r 查看详情!",
+  "tooltip.slowmadism.stone_mill_shift": "非潜行状态: 右键打开合成GUI\n潜行状态: 右键转动石磨, 转一圈合成一次"
 }

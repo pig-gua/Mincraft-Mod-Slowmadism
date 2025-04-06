@@ -5,5 +5,8 @@
   "fluid.slowmadism.rice_milk": "Rice Milk",
   "item.slowmadism.rice_milk_bucket": "Rice Milk Bucket",
   "block.slowmadism.stone_mill": "Stone Mill",
-  "screen.slowmadism.stone_mill": "Stone Mill"
+  "screen.slowmadism.stone_mill": "Stone Mill",
+  "item.slowmadism.cheung_fun_dish": "Cheung Fun Dish",
+  "tooltip.slowmadism.stone_mill": "Hold §eSHIFT§r for more Information!",
+  "tooltip.slowmadism.stone_mill_shift": "Non-sneaking: Right-click to open crafting GUI\nSneaking: Right-click to rotate the stone mill, craft once per full rotation"
 }

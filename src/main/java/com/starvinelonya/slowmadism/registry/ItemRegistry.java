@@ -30,6 +30,10 @@ public class ItemRegistry {
             () -> new Item(new Item.Properties()
                     .group(SlowmadismItemGroup.SLOWMADISM_ITEM_GROUP)));
 
+    public static final RegistryObject<Item> CHEUNG_FUN_DISH = ITEMS.register("cheung_fun_dish",
+            () -> new Item(new Item.Properties()
+                    .group(SlowmadismItemGroup.SLOWMADISM_ITEM_GROUP)));
+
     public static final RegistryObject<Item> RICE_MILK_BUCKET = ITEMS.register("rice_milk_bucket",
             () -> new BucketItem(() -> FluidRegistry.RICE_MILK_FLUID.get(), new Item.Properties()
                     .maxStackSize(1)

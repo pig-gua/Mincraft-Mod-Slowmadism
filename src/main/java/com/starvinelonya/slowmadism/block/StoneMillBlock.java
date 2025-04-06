@@ -5,11 +5,14 @@ import com.starvinelonya.slowmadism.container.StoneMillContainer;
 import com.starvinelonya.slowmadism.registry.TileEntityRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -21,6 +24,10 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * StoneMillBlock 石磨
@@ -73,6 +80,16 @@ public class StoneMillBlock extends Block {
             @Override
             public Container createMenu(int i, @NotNull PlayerInventory playerInventory, @NotNull PlayerEntity playerEntity) {
                 return new StoneMillContainer(i, worldIn, pos, playerInventory, playerEntity);
+            }
+        };
+    }
+
+    public static Consumer<List<ITextComponent>> addToolTip() {
+        return tooltip -> {
+            if(Screen.hasShiftDown()) {
+                tooltip.add(new TranslationTextComponent("tooltip.slowmadism.stone_mill_shift"));
+            } else {
+                tooltip.add(new TranslationTextComponent("tooltip.slowmadism.stone_mill"));
             }
         };
     }

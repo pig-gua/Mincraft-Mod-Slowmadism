@@ -48,9 +48,6 @@ public class StoneMillRecipe implements IStoneMillRecipe {
             }
         }
 
-        System.out.println(inputs);
-        System.out.println(recipeItems);
-
         return inputs.size() == this.recipeItems.size() && (RecipeMatcher.findMatches(inputs,  this.recipeItems) != null);
     }
 
