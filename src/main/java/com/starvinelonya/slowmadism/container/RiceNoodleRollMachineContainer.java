@@ -18,19 +18,19 @@ import net.minecraftforge.items.wrapper.InvWrapper;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * StoneMillContainer
+ * RiceNoodleRollMachineContainer
  *
  * @author Slowmadism
  * @date 2025/04/01
  */
-public class StoneMillContainer extends Container {
+public class RiceNoodleRollMachineContainer extends Container {
 
     private final TileEntity tileEntity;
     private final PlayerEntity playerEntity;
     private final IItemHandler playerInventory;
 
-    public StoneMillContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player) {
-        super(ContainerRegistry.STONE_MILL_CONTAINER.get(), windowId);
+    public RiceNoodleRollMachineContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity player) {
+        super(ContainerRegistry.RICE_NOODLE_ROLL_MACHINE_CONTAINER.get(), windowId);
         this.tileEntity = world.getTileEntity(pos);
         playerEntity = player;
         this.playerInventory = new InvWrapper(playerInventory);
@@ -38,8 +38,12 @@ public class StoneMillContainer extends Container {
 
         if(tileEntity != null) {
             tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-                addSlotBox(h, 0, 35, 26, 2, 18, 2, 18);
-                addSlot(new SlotItemHandler(h, 4, 116, 35));
+                // 添加输入槽位（6 个槽位，位置分别为 (21, 15)）。
+                addSlotBox(h, 0, 21, 15, 3, 18, 2, 18);
+                // 添加燃料槽位（槽位索引 6，位置 (57, 59)）。
+                addSlot(new SlotItemHandler(h, 6, 57, 59));
+                // 添加输出槽位（槽位索引 8，位置 (127, 25)）。
+                addSlot(new SlotItemHandler(h, 7, 127, 25));
             });
         }
     }
@@ -47,7 +51,7 @@ public class StoneMillContainer extends Container {
     @Override
     public boolean canInteractWith(@NotNull PlayerEntity playerIn) {
         return isWithinUsableDistance(IWorldPosCallable.of(tileEntity.getWorld(), tileEntity.getPos()),
-                playerIn, BlockRegistry.STONE_MILL_BLOCK.get());
+                playerIn, BlockRegistry.RICE_NOODLE_ROLL_MACHINE_BLOCK.get());
     }
 
     private int addSlotRange(IItemHandler handler, int index, int x, int y, int amount, int dx) {
@@ -92,7 +96,7 @@ public class StoneMillContainer extends Container {
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 5;  // must match TileEntityInventoryBasic.NUMBER_OF_SLOTS
+    private static final int TE_INVENTORY_SLOT_COUNT = 8;  // must match TileEntityInventoryBasic.NUMBER_OF_SLOTS
 
     @Override
     public ItemStack transferStackInSlot(PlayerEntity playerIn, int index) {

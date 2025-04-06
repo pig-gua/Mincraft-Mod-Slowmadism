@@ -1,6 +1,7 @@
 package com.starvinelonya.slowmadism.registry;
 
 import com.starvinelonya.slowmadism.Slowmadism;
+import com.starvinelonya.slowmadism.container.RiceNoodleRollMachineContainer;
 import com.starvinelonya.slowmadism.container.StoneMillContainer;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.util.math.BlockPos;
@@ -27,6 +28,14 @@ public class ContainerRegistry {
                 BlockPos pos = data.readBlockPos();
                 World world = inv.player.getEntityWorld();
                 return new StoneMillContainer(windowId, world, pos, inv, inv.player);
+            })));
+
+    public static final RegistryObject<ContainerType<RiceNoodleRollMachineContainer>> RICE_NOODLE_ROLL_MACHINE_CONTAINER
+            = CONTAINERS.register("rice_noodle_roll_machine_container",
+            () -> IForgeContainerType.create(((windowId, inv, data) -> {
+                BlockPos pos = data.readBlockPos();
+                World world = inv.player.getEntityWorld();
+                return new RiceNoodleRollMachineContainer(windowId, world, pos, inv, inv.player);
             })));
 
     public static void register(IEventBus eventBus) {

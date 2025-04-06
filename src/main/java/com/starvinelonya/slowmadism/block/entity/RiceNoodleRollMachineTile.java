@@ -1,5 +1,6 @@
 package com.starvinelonya.slowmadism.block.entity;
 
+import com.starvinelonya.slowmadism.data.recipes.RiceNoodleRollMachineRecipe;
 import com.starvinelonya.slowmadism.data.recipes.StoneMillRecipe;
 import com.starvinelonya.slowmadism.registry.RecipeTypeRegistry;
 import com.starvinelonya.slowmadism.registry.TileEntityRegistry;
@@ -7,9 +8,11 @@ import net.minecraft.block.BlockState;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -22,41 +25,38 @@ import javax.annotation.Nonnull;
 import java.util.Optional;
 
 /**
- * StoneMillBlockTile 石磨
+ * RiceNoodleRollMachineTile
  *
  * @author Slowmadism
  * @date 2025/04/01
  */
-public class StoneMillTile extends TileEntity {
+public class RiceNoodleRollMachineTile extends TileEntity implements ITickableTileEntity {
 
     private final ItemStackHandler itemHandler = createHandler();
     private final LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
-    private int rotation = 0;
 
-    public StoneMillTile(TileEntityType<?> tileEntityTypeIn) {
+    public RiceNoodleRollMachineTile(TileEntityType<?> tileEntityTypeIn) {
         super(tileEntityTypeIn);
     }
 
-    public StoneMillTile() {
-        this(TileEntityRegistry.STONE_MILL_TILE.get());
+    public RiceNoodleRollMachineTile() {
+        this(TileEntityRegistry.RICE_NOODLE_ROLL_MACHINE_TILE.get());
     }
 
     @Override
     public void read(@NotNull BlockState state, @NotNull CompoundNBT nbt) {
         itemHandler.deserializeNBT(nbt.getCompound("inv"));
-        this.rotation = nbt.getInt("rotation");
         super.read(state, nbt);
     }
 
     @Override
     public @NotNull CompoundNBT write(CompoundNBT compound) {
         compound.put("inv", itemHandler.serializeNBT());
-        compound.putInt("rotation", rotation);
         return super.write(compound);
     }
 
     private ItemStackHandler createHandler() {
-        return new ItemStackHandler(5) {
+        return new ItemStackHandler(8) {
             @Override
             protected void onContentsChanged(int slot) {
                 markDirty();
@@ -96,16 +96,18 @@ public class StoneMillTile extends TileEntity {
         return super.getCapability(cap, side);
     }
 
-    public void rotate() {
-        if (rotation == 8) {
-            craft();
-            rotation = 0;
+    @Override
+    public void tick() {
+        assert world != null;
+        if(world.isRemote) {
+            return;
         }
-        rotation++;
-    }
 
-    public int getRotation() {
-        return rotation;
+        // 如果第六个slot存在燃料，则制作物品
+        ItemStack fuelItemStack = itemHandler.getStackInSlot(6);
+        if(!fuelItemStack.isEmpty() && ForgeHooks.getBurnTime(fuelItemStack, null) > 0) {
+            craft();
+        }
     }
 
     public void craft() {
@@ -115,8 +117,8 @@ public class StoneMillTile extends TileEntity {
         }
 
         assert world != null;
-        Optional<StoneMillRecipe> recipe = world.getRecipeManager()
-                .getRecipe(RecipeTypeRegistry.STONE_MILL_RECIPE, inv, world);
+        Optional<RiceNoodleRollMachineRecipe> recipe = world.getRecipeManager()
+                .getRecipe(RecipeTypeRegistry.RICE_NOODLE_ROLL_MACHINE_RECIPE, inv, world);
 
         recipe.ifPresent(iRecipe -> {
             ItemStack output = iRecipe.getRecipeOutput();
@@ -126,12 +128,15 @@ public class StoneMillTile extends TileEntity {
     }
 
     private void craftTheItem(ItemStack output) {
-        ItemStack itemStack = itemHandler.insertItem(4, output, false);
+        ItemStack itemStack = itemHandler.insertItem(7, output, false);
         if (itemStack == ItemStack.EMPTY) {
             itemHandler.extractItem(0, 1, false);
             itemHandler.extractItem(1, 1, false);
             itemHandler.extractItem(2, 1, false);
             itemHandler.extractItem(3, 1, false);
+            itemHandler.extractItem(4, 1, false);
+            itemHandler.extractItem(5, 1, false);
+            itemHandler.extractItem(6, 1, false);
         }
     }
 

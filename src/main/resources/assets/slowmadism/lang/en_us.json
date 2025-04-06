@@ -1,13 +1,21 @@
 {
   "itemGroup.slowmadismTab": "Slowmadism Mod",
-  "block.slowmadism.sand_ginger_crop": "Sand Ginger",
+
   "item.slowmadism.rice": "Rice",
-  "fluid.slowmadism.rice_milk": "Rice Milk",
-  "item.slowmadism.rice_milk_bucket": "Rice Milk Bucket",
-  "block.slowmadism.stone_mill": "Stone Mill",
-  "screen.slowmadism.stone_mill": "Stone Mill",
   "item.slowmadism.cheung_fun_dish": "Cheung Fun Dish",
   "item.slowmadism.plain_cheung_fun": "Plain Cheung Fun",
+
+  "block.slowmadism.sand_ginger_crop": "Sand Ginger",
+
+  "fluid.slowmadism.rice_milk": "Rice Milk",
+  "item.slowmadism.rice_milk_bucket": "Rice Milk Bucket",
+
+  "block.slowmadism.stone_mill": "Stone Mill",
+  "screen.slowmadism.stone_mill": "Stone Mill",
   "tooltip.slowmadism.stone_mill": "Hold §eSHIFT§r for more Information!",
-  "tooltip.slowmadism.stone_mill_shift": "Non-sneaking: Right-click to open crafting GUI\nSneaking: Right-click to rotate the stone mill, craft once per full rotation"
+  "tooltip.slowmadism.stone_mill_shift": "Non-sneaking: Right-click to open crafting GUI\nSneaking: Right-click to rotate the stone mill, craft once per full rotation",
+  "block.slowmadism.rice_noodle_roll_machine": "Rice Noodle Roll Machine",
+  "screen.slowmadism.rice_noodle_roll_machine": "Rice Noodle Roll Machine",
+  "tooltip.slowmadism.rice_noodle_roll_machine": "Hold §eSHIFT§r for more Information!",
+  "tooltip.slowmadism.rice_noodle_roll_machine_shift": "123"
 }

@@ -1,0 +1,67 @@
+{
+  "variants": {
+    "facing=north,has_item=false,open=false": {
+      "model": "slowmadism:block/rice_noodle_roll_machine"
+    },
+    "facing=north,has_item=false,open=true": {
+      "model": "slowmadism:block/rice_noodle_roll_machine_open"
+    },
+    "facing=north,has_item=true,open=false": {
+      "model": "slowmadism:block/rice_noodle_roll_machine"
+    },
+    "facing=north,has_item=true,open=true": {
+      "model": "slowmadism:block/rice_noodle_roll_machine_open_item"
+    },
+
+    "facing=south,has_item=false,open=false": {
+      "model": "slowmadism:block/rice_noodle_roll_machine",
+      "y": 180
+    },
+    "facing=south,has_item=false,open=true": {
+      "model": "slowmadism:block/rice_noodle_roll_machine_open",
+      "y": 180
+    },
+    "facing=south,has_item=true,open=false": {
+      "model": "slowmadism:block/rice_noodle_roll_machine",
+      "y": 180
+    },
+    "facing=south,has_item=true,open=true": {
+      "model": "slowmadism:block/rice_noodle_roll_machine_open_item",
+      "y": 180
+    },
+
+    "facing=west,has_item=false,open=false": {
+      "model": "slowmadism:block/rice_noodle_roll_machine",
+      "y": 270
+    },
+    "facing=west,has_item=false,open=true": {
+      "model": "slowmadism:block/rice_noodle_roll_machine_open",
+      "y": 270
+    },
+    "facing=west,has_item=true,open=false": {
+      "model": "slowmadism:block/rice_noodle_roll_machine",
+      "y": 270
+    },
+    "facing=west,has_item=true,open=true": {
+      "model": "slowmadism:block/rice_noodle_roll_machine_open_item",
+      "y": 270
+    },
+
+    "facing=east,has_item=false,open=false": {
+      "model": "slowmadism:block/rice_noodle_roll_machine",
+      "y": 90
+    },
+    "facing=east,has_item=false,open=true": {
+      "model": "slowmadism:block/rice_noodle_roll_machine_open",
+      "y": 90
+    },
+    "facing=east,has_item=true,open=false": {
+      "model": "slowmadism:block/rice_noodle_roll_machine",
+      "y": 90
+    },
+    "facing=east,has_item=true,open=true": {
+      "model": "slowmadism:block/rice_noodle_roll_machine_open_item",
+      "y": 90
+    }
+  }
+}

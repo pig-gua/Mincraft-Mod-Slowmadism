@@ -1,6 +1,7 @@
 package com.starvinelonya.slowmadism.registry;
 
 import com.starvinelonya.slowmadism.Slowmadism;
+import com.starvinelonya.slowmadism.block.entity.RiceNoodleRollMachineTile;
 import com.starvinelonya.slowmadism.block.entity.StoneMillTile;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -20,6 +21,9 @@ public class TileEntityRegistry {
 
     public static RegistryObject<TileEntityType<StoneMillTile>> STONE_MILL_TILE = TILE_ENTITIES.register("stone_mill_tile",
             () -> TileEntityType.Builder.create(StoneMillTile::new, BlockRegistry.STONE_MILL_BLOCK.get()).build(null));
+
+    public static RegistryObject<TileEntityType<RiceNoodleRollMachineTile>> RICE_NOODLE_ROLL_MACHINE_TILE = TILE_ENTITIES.register("rice_noodle_roll_machine_tile",
+            () -> TileEntityType.Builder.create(RiceNoodleRollMachineTile::new, BlockRegistry.RICE_NOODLE_ROLL_MACHINE_BLOCK.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         TILE_ENTITIES.register(eventBus);

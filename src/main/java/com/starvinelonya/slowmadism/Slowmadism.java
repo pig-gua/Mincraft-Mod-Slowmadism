@@ -2,6 +2,7 @@ package com.starvinelonya.slowmadism;
 
 import com.starvinelonya.slowmadism.registry.*;
 import com.starvinelonya.slowmadism.render.StoneMillTileEntityRender;
+import com.starvinelonya.slowmadism.screen.RiceNoodleRollMachineScreen;
 import com.starvinelonya.slowmadism.screen.StoneMillScreen;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -136,6 +137,7 @@ public class Slowmadism {
             RenderTypeLookup.setRenderLayer(FluidRegistry.RICE_MILK_FLOWING.get(), RenderType.getTranslucent());
             // 注册屏幕GUI渲染
             ScreenManager.registerFactory(ContainerRegistry.STONE_MILL_CONTAINER.get(), StoneMillScreen::new);
+            ScreenManager.registerFactory(ContainerRegistry.RICE_NOODLE_ROLL_MACHINE_CONTAINER.get(), RiceNoodleRollMachineScreen::new);
             // 自定义方块实体渲染
             ClientRegistry.bindTileEntityRenderer(TileEntityRegistry.STONE_MILL_TILE.get(), StoneMillTileEntityRender::new);
         });

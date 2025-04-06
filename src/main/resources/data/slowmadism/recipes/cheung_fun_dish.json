@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "^^^",
+    "#^#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:clay_ball"
+    },
+    "^": {
+      "item": "minecraft:air"
+    }
+  },
+  "result": {
+    "item": "slowmadism:stone_mill",
+    "count": 1
+  }
+}

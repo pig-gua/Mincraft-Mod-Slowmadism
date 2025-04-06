@@ -1,0 +1,14 @@
+{
+  "type": "slowmadism:rice_noodle_roll_machine",
+  "ingredients": [
+    {
+      "item": "slowmadism:rice_milk_bucket"
+    },
+    {
+      "item": "slowmadism:cheung_fun_dish"
+    }
+  ],
+  "output": {
+    "item": "slowmadism:plain_cheung_fun"
+  }
+}

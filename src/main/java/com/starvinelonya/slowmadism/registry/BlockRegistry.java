@@ -1,6 +1,7 @@
 package com.starvinelonya.slowmadism.registry;
 
 import com.starvinelonya.slowmadism.Slowmadism;
+import com.starvinelonya.slowmadism.block.RiceNoodleRollMachineBlock;
 import com.starvinelonya.slowmadism.block.SandGingerCrop;
 import com.starvinelonya.slowmadism.block.StoneMillBlock;
 import com.starvinelonya.slowmadism.group.SlowmadismItemGroup;
@@ -41,6 +42,10 @@ public class BlockRegistry {
     public static final RegistryObject<Block> STONE_MILL_BLOCK = registerBlock("stone_mill",
             () -> new StoneMillBlock(AbstractBlock.Properties.create(Material.ROCK).notSolid()),
             StoneMillBlock.addToolTip());
+
+    public static final RegistryObject<Block> RICE_NOODLE_ROLL_MACHINE_BLOCK = registerBlock("rice_noodle_roll_machine",
+            () -> new RiceNoodleRollMachineBlock(AbstractBlock.Properties.create(Material.IRON).hardnessAndResistance(3.0F, 3.0F)),
+            RiceNoodleRollMachineBlock.addToolTip());
 
     private static <T extends Block > RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
